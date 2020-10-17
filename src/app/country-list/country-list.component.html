@@ -1,0 +1,25 @@
+<div [id]="1" style="background-color: brown">
+  <mat-card style="background-color: aqua">
+    <mat-card-title>
+      <h5>Color description and hex code!</h5>
+    </mat-card-title>
+    <mat-card-content>
+      <ul class="countries" >
+        <li  *ngFor ="let country of countries" style="background-color: darksalmon" [class.mat-select]="country === changeDesc" (click)="onChangeCountry(country)" [id]="2" >
+          <span class="badge" id="span1"> {{country.CountryName}}</span>
+          <!--        <span class="mat-badge" [ngStyle]="{'background-color': color.ColorHex}" ></span>-->
+        </li>
+      </ul>
+      <div class="Desc" *ngIf="changeDesc" style="background-color: lemonchiffon">
+        <h5>{{changeDesc.CountryName}}</h5>
+        <div>
+          <label>Country Description Change:
+            <input class="inp" [(ngModel)]="changeDesc.CountryName" placeholder="ColorName"/>
+            <input class="inp" [(ngModel)]="changeDesc.CountrySquare" placeholder="ColorHex"/>
+            <input class="inp" [(ngModel)]="changeDesc.CountryDesc" placeholder="ColorHex"/>
+          </label>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
